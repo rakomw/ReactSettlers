@@ -1,38 +1,117 @@
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
   background-color: #282c34;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+  justify-content: center;
+
+  font-size: calc(5vmin);
+}
+
+body {
+  margin: 0;
+  height: 50vh;
+  width: 100vw;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.board {
+  display: grid;
+  grid-template-rows: repeat(5, 20%);
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: 0;
+  height: 85vh;
+  padding-top: 3%;
 }
 
-.App-link {
-  color: #61dafb;
+.row {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  height: 130%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.row-hex{
+  display: flex;
+  position: relative;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.row-road{
+  display: none;
+  position: absolute;
+  justify-content: center;
+  height:100%;
+  align-items: center;
+  gap: 4em;
+}
+
+.Hex {
+  position: relative;
+  height: 100%;
+  aspect-ratio: 1 / 1;
+  -webkit-clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  z-index: 0;
+}
+
+.HexNumber {
+  position: absolute;
+  font-size: calc(6vmin);
+  font-weight: 600;
+  z-index: 2;
+  color: black;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  -moz-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  -o-transform: translate(-50%,-50%);
+}
+
+.HexImage {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+}
+
+.road-vertical {
+    position: relative;
+    height: 3rem;
+    width: 1rem;
+    /*
+    -webkit-clip-path: polygon(0 25%, 100% 25%, 100% 75%, 0 75%);
+    clip-path: polygon(0 25%, 100% 25%, 100% 75%, 0 75%);
+    */
+    background-color: blue;
+    opacity: .6;
+    transition: all .1s;
+}
+
+.road-northwest {
+    position: relative;
+    height: 3.0rem;
+    width: 1rem;
+    transform: rotate(120deg) translate(-2.0rem, -0.5rem) ;
+    /*
+    -webkit-clip-path: polygon(0 25%, 100% 25%, 100% 75%, 0 75%);
+    clip-path: polygon(0 25%, 100% 25%, 100% 75%, 0 75%);
+    */
+    background-color: blue;
+    opacity: .8;
+    transition: all .1s;
 }
