@@ -1,0 +1,197 @@
+.board {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  height: 85vh;
+  min-height: 600px;
+  min-width: 600px;
+  width: 85vh;
+  padding-top: 5vh;
+}
+
+/*
+  Layers, each of which is a child of the board element
+*/
+.hexLayer {
+  display: grid;
+  position: absolute;
+  z-index: 0;
+  grid-template-rows: repeat(5, 20%);
+  gap: 0;
+  height: 85vh;
+  padding-top: 4.25vh;
+}
+
+.roadLayer {
+  display: grid;
+  position: absolute;
+  z-index: 1;
+  grid-template-rows: repeat(5, 5% 10%) 5%;
+  gap: 2.125vh;
+  height: 85vh;
+  padding-top: 10.75vh;
+}
+
+.townLayer {
+  display: grid;
+  position: absolute;
+  z-index: 2;
+  grid-template-rows: repeat(6, 10%);
+  gap: 8.5vh;
+  height: 85vh;
+  padding-top: 12.75vh;
+}
+
+/*
+  tows of each element type, each children of respective layer
+*/
+.row-hex{
+  display: flex;
+  position: relative;
+  height: 22.5vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.row-road-vertical{
+  display: flex;
+  position: relative;
+  top: -35%;
+  justify-content: center;
+  height: 100%;
+  align-items: center;
+  gap: 20.25vh;
+}
+
+.row-road-horizontal{
+  display: flex;
+  position: relative;
+  top: -20%;
+  left: 0vh;
+  justify-content: center;
+  height: 100%;
+  align-items: center;
+  gap: 9.0vh;
+}
+
+.row-town {
+  display: flex;
+  position: relative;
+  top: -0.5vh;
+  left: 0vh;
+  justify-content: center;
+  height: 100%;
+  align-items: top;
+  gap: 8.50vh;
+}
+
+/*
+  Hexes and their sub-components
+*/
+
+.Hex {
+  position: relative;
+  height: 100%;
+  aspect-ratio: 1 / 1;
+  -webkit-clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  z-index: 0;
+}
+
+.HexNumber {
+  position: absolute;
+  font-size: calc(6vmin);
+  font-weight: 600;
+  z-index: 2;
+  color: black;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  -moz-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  -o-transform: translate(-50%,-50%);
+}
+
+.HexImage {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+}
+
+/*
+  different orientations of road pieces
+*/
+
+
+.road-vertical {
+    position: relative;
+    height: 8vh;
+    width: 2vh;
+    /*
+    -webkit-clip-path: polygon(0 25%, 100% 25%, 100% 75%, 0 75%);
+    clip-path: polygon(0 25%, 100% 25%, 100% 75%, 0 75%);
+    */
+    background-color: blue;
+    opacity: 1.0;
+    transition: all .1s;
+}
+
+.road-northwest {
+    position: relative;
+    height: 8vh;
+    width: 2vh;
+    transform: translate(0vh, -1.5vh) rotate(120deg);
+    /*
+    -webkit-clip-path: polygon(0 25%, 100% 25%, 100% 75%, 0 75%);
+    clip-path: polygon(0 25%, 100% 25%, 100% 75%, 0 75%);
+    */
+    background-color: blue;
+    opacity: 1.0;
+    transition: all .1s;
+}
+
+.road-southwest {
+    position: relative;
+    height: 8vh;
+    width: 2vh;
+    transform: translate(0vh, -1.5vh) rotate(240deg);
+    /*
+    -webkit-clip-path: polygon(0 25%, 100% 25%, 100% 75%, 0 75%);
+    clip-path: polygon(0 25%, 100% 25%, 100% 75%, 0 75%);
+    */
+    background-color: blue;
+    opacity: 1.0;
+    transition: all .1s;
+}
+
+/*
+  towns in different positions relative to the row
+*/
+
+.town-left {
+    height: 2.5vh;
+    width: 2.5vh;
+    background-color: red;
+    opacity: 1.0;
+    transition: all .1s;
+    font-size: .8rem;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.town-top {
+    height: 2.5vh;
+    width: 2.5vh;
+    transform: translate(0vh, -5vh);
+    background-color: red;
+    opacity: 1.0;
+    transition: all .1s;
+    font-size: .8rem;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
