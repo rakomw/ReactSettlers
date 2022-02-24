@@ -1,10 +1,38 @@
 import React from 'react';
 
-class Road extends React.Component{
+import settlement from '../assets/pieces/settlement.gif';
+import city from '../assets/pieces/city.gif';
+
+
+class Road extends React.Component {
+
+  constructor(props){
+    super(props);
+    this.state = { buildLevel: 0 };
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick(){
+    this.setState(prevState => ({
+      buildLevel: (prevState.buildLevel + 1) % 2
+    }));
+  }
+
   render() {
-    return (
-      <div className={'road-'+this.props.direction} />
-    );
+    switch (this.state.buildLevel) {
+      case 0:
+        return (
+          <button className={'road-'+this.props.direction}  style={{opacity: "100%"}} onClick={this.handleClick}/>
+        );
+      case 1:
+        return (
+          <button className={'road-'+this.props.direction} style={{opacity: "50%"}} onClick={this.handleClick}/>
+        );
+      default:
+        return (
+          <div className={'town-'+this.props.corner} onClick={this.handleClick}/>
+        );
+    }
   }
 }
 

@@ -3,6 +3,7 @@
   align-items: center;
   justify-content: center;
   gap: 0;
+  pointer-events: none;
   height: 85vh;
   min-height: 600px;
   min-width: 600px;
@@ -16,6 +17,7 @@
 .hexLayer {
   display: grid;
   position: absolute;
+  pointer-events: none;
   z-index: 0;
   grid-template-rows: repeat(5, 20%);
   gap: 0;
@@ -26,7 +28,8 @@
 .roadLayer {
   display: grid;
   position: absolute;
-  z-index: 1;
+  pointer-events: none;
+  z-index: 0;
   grid-template-rows: repeat(5, 5% 10%) 5%;
   gap: 2.125vh;
   height: 85vh;
@@ -36,11 +39,12 @@
 .townLayer {
   display: grid;
   position: absolute;
-  z-index: 2;
+  pointer-events: none;
+  z-index: 1;
   grid-template-rows: repeat(6, 10%);
   gap: 8.5vh;
   height: 85vh;
-  padding-top: 12.75vh;
+  padding-top: 10.75vh;
 }
 
 /*
@@ -49,6 +53,7 @@
 .row-hex{
   display: flex;
   position: relative;
+  pointer-events: none;
   height: 22.5vh;
   justify-content: center;
   align-items: center;
@@ -57,6 +62,7 @@
 .row-road-vertical{
   display: flex;
   position: relative;
+  pointer-events: none;
   top: -35%;
   justify-content: center;
   height: 100%;
@@ -67,6 +73,7 @@
 .row-road-horizontal{
   display: flex;
   position: relative;
+  pointer-events: none;
   top: -20%;
   left: 0vh;
   justify-content: center;
@@ -78,12 +85,13 @@
 .row-town {
   display: flex;
   position: relative;
-  top: -0.5vh;
+  pointer-events: none;
+  top: -1.0vh;
   left: 0vh;
   justify-content: center;
   height: 100%;
   align-items: top;
-  gap: 8.50vh;
+  gap: 6.80vh;
 }
 
 /*
@@ -93,6 +101,8 @@
 .Hex {
   position: relative;
   height: 100%;
+  z-index: 2;
+  pointer-events: none;
   aspect-ratio: 1 / 1;
   -webkit-clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
   clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
@@ -103,7 +113,8 @@
   position: absolute;
   font-size: calc(6vmin);
   font-weight: 600;
-  z-index: 2;
+  z-index: 1;
+  pointer-events: auto;
   color: black;
   top: 50%;
   left: 50%;
@@ -117,6 +128,7 @@
 .HexImage {
   position: relative;
   height: 100%;
+  pointer-events: auto;
   width: 100%;
   z-index: 1;
 }
@@ -128,8 +140,10 @@
 
 .road-vertical {
     position: relative;
+    pointer-events: auto;
     height: 8vh;
     width: 2vh;
+    z-index: 1;
     /*
     -webkit-clip-path: polygon(0 25%, 100% 25%, 100% 75%, 0 75%);
     clip-path: polygon(0 25%, 100% 25%, 100% 75%, 0 75%);
@@ -141,8 +155,10 @@
 
 .road-northwest {
     position: relative;
+    pointer-events: auto;
     height: 8vh;
     width: 2vh;
+    z-index: 1;
     transform: translate(0vh, -1.5vh) rotate(120deg);
     /*
     -webkit-clip-path: polygon(0 25%, 100% 25%, 100% 75%, 0 75%);
@@ -155,8 +171,10 @@
 
 .road-southwest {
     position: relative;
+    pointer-events: auto;
     height: 8vh;
     width: 2vh;
+    z-index: 1;
     transform: translate(0vh, -1.5vh) rotate(240deg);
     /*
     -webkit-clip-path: polygon(0 25%, 100% 25%, 100% 75%, 0 75%);
@@ -172,26 +190,28 @@
 */
 
 .town-left {
-    height: 2.5vh;
-    width: 2.5vh;
-    background-color: red;
+    height: 4.25vh;
+    width: 4.25vh;
     opacity: 1.0;
     transition: all .1s;
+    z-index: 1;
     font-size: .8rem;
     display: flex;
     justify-content: center;
     align-items: flex-end;
+    pointer-events: auto;
 }
 
 .town-top {
-    height: 2.5vh;
-    width: 2.5vh;
+    height: 4.25vh;
+    width: 4.25vh;
     transform: translate(0vh, -5vh);
-    background-color: red;
     opacity: 1.0;
     transition: all .1s;
+    z-index: 1;
     font-size: .8rem;
     display: flex;
     justify-content: center;
     align-items: flex-end;
+    pointer-events: auto;
 }
